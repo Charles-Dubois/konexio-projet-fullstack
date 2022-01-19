@@ -1,14 +1,14 @@
 $(() => {
 
-    console.log($("#countryForm").val())
-    console.log($("#test").val())
+
+
 
     //                     Déclaration de la fonction qui selectionne les pays
     function getAllCountries() {
 
         $.ajax({
             // Importation de l'API rescountries
-            url: "https://restcountries.com/v3.1/all",
+            url: "https://restcountries.com/v3.1/name/" + $("#countryForm").val(),
             success: function(countries) {
                 countries.forEach(country => {
 
@@ -25,5 +25,6 @@ $(() => {
     // appel ma fonction d'affichage du pays a chaque click
     $("#btnShowData").click(() => {
         getAllCountries()
+        console.log($("#countryForm").val())
     })
 })

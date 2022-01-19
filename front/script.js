@@ -8,10 +8,11 @@ $(() => {
         //                       Défini le endpoint selon le choix du user : pays ou capital
         let endPoint = "";
         if ($("#LookingForCountry").is(":checked")) {
-            console.log("okkk")
             endPoint = "https://restcountries.com/v3.1/name/"
         } else if ($("#LookingForCapital").is(":checked")) {
             endPoint = "https://restcountries.com/v3.1/capital/"
+        } else if ($("#LookingForSubRegion").is(":checked")) {
+            endPoint = "https://restcountries.com/v3.1/subregion/"
         } else { console.log("il faut choisir") }
 
 

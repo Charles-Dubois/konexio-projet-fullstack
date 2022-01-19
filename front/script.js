@@ -1,10 +1,18 @@
 $(() => {
-
-
+    //                          affiche un spinner     placer en début de fonction appelé lors d'un click
+    function showMySpinner() {
+        $(".countries-list").append(`<div class="spinner-border" role="status">
+<span class="visually-hidden">Loading...</span>
+</div>`)
+    }
+    //                        Supprime le spinner   placer en fin de fonction appelé lors d'un click
+    function hideMySpinner() {
+        $(".spinner-border").remove()
+    }
     //                  Affichage de tous les pays
     function reset() {
 
-
+        showMySpinner()
         $.ajax({
 
             url: "https://restcountries.com/v3.1/all",
@@ -17,6 +25,8 @@ $(() => {
                 });
 
             }
+        }).then(() => {
+            hideMySpinner()
         })
 
     }
@@ -30,6 +40,12 @@ $(() => {
 
     //                     Déclaration de la fonction qui selectionne les pays
     function getAllCountries() {
+
+
+
+
+        showMySpinner()
+
         //                       Défini le endpoint selon le choix du user : pays // capital // subregion
         let endPoint = "";
         if ($("#LookingForCountry").is(":checked")) {
@@ -53,9 +69,11 @@ $(() => {
                         `<li><p>Name : ${country.name.common}<br />Capital : ${country.capital} <br />Continent : ${country.region}</p></li>`
                     )
                 });
-
             },
+        }).then(() => {
+            hideMySpinner()
         })
+
     };
 
     // appel ma fonction d'affichage du pays a chaque click

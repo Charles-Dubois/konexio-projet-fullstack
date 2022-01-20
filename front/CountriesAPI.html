@@ -12,7 +12,7 @@
     <title>Countries API</title>
 </head>
 
-<body onload="mapLoad()">
+<body>
     <header class="d-flex align-items-center flex-column">
         <div class="textInput">
             <input type="text" name="country" id="countryForm" class=" form-text">
@@ -25,9 +25,9 @@
             <input type="radio" id="LookingForSubRegion" name="LookingFor" value="SubRegion">List of countries in a subregion
         </div>
     </header>
-    <div id="map"></div>
-    <section class="resultOfCountry">
 
+    <section class="resultOfCountry">
+        <section class="mapPosition"></section>
         <ul class="countries-list"></ul>
 
     </section>
@@ -42,7 +42,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
 
-    <script src="./main.js"></script>
+    <!-- <script src="./main.js"></script> -->
     <script src="./script.js"></script>
 </body>
 

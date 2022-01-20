@@ -9,7 +9,7 @@ $(() => {
 
     function showMySpinner() {
 
-        $(".countries-list").append(`<div class="spinner-border" role="status">
+        $(".countries-list").append(`<div class="spinner-border text-danger" role="status">
 <span class="visually-hidden">Loading...</span>
 </div>`);
     }
@@ -120,28 +120,28 @@ $(() => {
 
     };
     //                           fonction pour vérifier que le formulaire est rempli
-    function checkInputForm() {
+    function checkInput() {
         if ($("#countryForm").val().length < 1) {
             checkForm = false;
         } else if ($("#countryForm").val().length > 1) {
             checkForm = true;
         }
-    }
 
-    function checkInputRadio() {
         if ($("#LookingForCountry").is(":checked")) {
-            checkInputRadio = true
+            checkRadio = true
         } else if ($("#LookingForCountry").is(":checked")) {
-            checkInputRadio = true
-        } else if ($("#LookingForSubRegion")) {
-            checkInputRadio = true
+            checkRadio = true
+        } else if ($("#LookingForSubRegion").is(":checked")) {
+            checkRadio = true
         }
     }
 
+
     // appel ma fonction d'affichage du pays et de la map à chaque click ur show data
     $("#btnShowData").click(() => {
-        checkInputForm() //               vérification du formutaire
-        if ((checkForm === true) && (checkRadio === true)) { // vérifie que les champs soit remplis avant d'appler une fonction
+
+        checkInput() //               vérification du formutaire
+        if (checkForm && checkRadio === true) { // vérifie que les champs soit remplis avant d'appler une fonction
             getAllCountries();
         }
     })

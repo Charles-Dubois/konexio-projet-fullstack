@@ -11,10 +11,9 @@ $(() => {
     }
     //                  Affichage de tous les pays
     function reset() {
-
+        $("li").remove()
         showMySpinner()
         $.ajax({
-
             url: "https://restcountries.com/v3.1/all",
             success: function(countries) {
                 countries.forEach(country => {
@@ -23,13 +22,14 @@ $(() => {
                      <br />Continent : ${country.region}</p></li>`
                     )
                 });
-
             }
         }).then(() => {
             hideMySpinner()
         })
 
     }
+
+
     //                    Lance la fonction d'affichage à l'ouverture de la page
     reset()
         //                     Boutton de réinitialisation de l'affichage
@@ -39,14 +39,11 @@ $(() => {
 
 
     //                     Déclaration de la fonction qui selectionne les pays
+
     function getAllCountries() {
-
-
-
-
+        $("li").remove()
         showMySpinner()
-
-        //                       Défini le endpoint selon le choix du user : pays // capital // subregion
+            //                       Défini le endpoint selon le choix du user : pays // capital // subregion
         let endPoint = "";
         if ($("#LookingForCountry").is(":checked")) {
             endPoint = "https://restcountries.com/v3.1/name/"
@@ -56,18 +53,18 @@ $(() => {
             endPoint = "https://restcountries.com/v3.1/subregion/"
         } else { console.log("il faut choisir") }
 
-
         $.ajax({
             // Importation de l'API rescountries
             url: endPoint + $("#countryForm").val(),
             success: function(countries) {
                 countries.forEach(country => {
                     //                                 Retire tous les pays afficher pour affih=cher uniquement ceux recherchés
-                    $("li").remove()
-                        // Créer des élément de liste avec 3 clés nom du pays, capital, continent
+
+                    // Créer des élément de liste avec 3 clés nom du pays, capital, continent
                     $(".countries-list").append(
                         `<li><p>Name : ${country.name.common}<br />Capital : ${country.capital} <br />Continent : ${country.region}</p></li>`
                     )
+                    console.log(country.name.common)
                 });
             },
         }).then(() => {
@@ -75,6 +72,9 @@ $(() => {
         })
 
     };
+
+
+
 
     // appel ma fonction d'affichage du pays a chaque click
     $("#btnShowData").click(() => {

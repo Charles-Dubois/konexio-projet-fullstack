@@ -2,16 +2,24 @@ $(() => {
     let latitude; // trois variable pour alimenter leaflet
     let longitude;
     let zoomLevel;
-    //                       fonction pour afficher un spinner placer e
+    let checkForm = true; // Deux variable pour vérifier que les formulaire sont bien rempli avant d'appeler une fonction
+    let checkRadio = false
+        //                       fonction pour afficher un spinner 
+
+
     function showMySpinner() {
+
         $(".countries-list").append(`<div class="spinner-border" role="status">
 <span class="visually-hidden">Loading...</span>
 </div>`);
     }
-    //                        Supprime le spinner
+
     function hideMySpinner() {
         $(".spinner-border").remove();
     }
+    //                        Supprime le spinner
+
+
     //                  Affichage de tous les pays 
     function reset() {
         $("li").remove(); //          Supprime les pays rcherché précedement
@@ -105,15 +113,36 @@ $(() => {
                 zoomLevel = 1; //             Petit zoom si l'utilisateur recherche une subregion
             }
             $(".mapPosition").append( //          insère la map dans la page 
-                `<div id="map"></div>`;
+                `<div id="map"></div>`
             )
             mapLoad() //          charge la map
         })
 
     };
+    //                           fonction pour vérifier que le formulaire est rempli
+    function checkInputForm() {
+        if ($("#countryForm").val().length < 1) {
+            checkForm = false;
+        } else if ($("#countryForm").val().length > 1) {
+            checkForm = true;
+        }
+    }
+
+    function checkInputRadio() {
+        if ($("#LookingForCountry").is(":checked")) {
+            checkInputRadio = true
+        } else if ($("#LookingForCountry").is(":checked")) {
+            checkInputRadio = true
+        } else if ($("#LookingForSubRegion")) {
+            checkInputRadio = true
+        }
+    }
 
     // appel ma fonction d'affichage du pays et de la map à chaque click ur show data
     $("#btnShowData").click(() => {
-        getAllCountries();
+        checkInputForm() //               vérification du formutaire
+        if ((checkForm === true) && (checkRadio === true)) { // vérifie que les champs soit remplis avant d'appler une fonction
+            getAllCountries();
+        }
     })
 })

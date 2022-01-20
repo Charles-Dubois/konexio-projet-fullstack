@@ -5,8 +5,8 @@
     }
     
     @font-face {
-        font-family: "MochiyPopPOne-Regular";
-        src: url(./fonts/Mochiy_Pop_P_One/OFL.txt) format("truetype");
+        font-family: "MochiyPop";
+        src: url(./fonts/Mochiy_Pop_P_One/MochiyPopPOne-Regular.ttf) format("truetype");
     }
     
     @font-face {
@@ -23,11 +23,11 @@
         padding-top: 4rem;
         display: flex;
         justify-content: center;
-        background-image: url(./img/milky-way-gadfb416e8_1920.jpg);
+        /* background-image: url(./img/milky-way-gadfb416e8_1920.jpg); */
     }
     
     p {
-        font-family: 'oswald';
+        font-family: "oswald";
         font-size: 1.2rem;
         color: rgb(0, 0, 0);
     }
@@ -41,7 +41,8 @@
     }
     
     header {
-        font-family: url(./fonts/static/Oswald-Medium.ttf);
+        font-family: "MochiyPop";
+        padding-bottom: 1%;
     }
     
     @media screen and (max-width: 500px) {
@@ -66,4 +67,9 @@
             display: flex;
             flex-direction: column;
         }
+    }
+    
+    #map {
+        height: 400px;
+        width: 400px;
     }

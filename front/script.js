@@ -64,7 +64,7 @@ $(() => {
                     $(".countries-list").append(
                         `<li class="list-group-item"><p>Name : ${country.name.common}<br />Capital : ${country.capital} <br />Continent : ${country.region}</p></li>`
                     )
-                    console.log(country.name.common)
+                    console.log(country.latlng[0])
                 });
             },
         }).then(() => {

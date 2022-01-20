@@ -18,7 +18,7 @@ $(() => {
             success: function(countries) {
                 countries.forEach(country => {
                     $(".countries-list").append(
-                        `<li><p>Name : ${country.name.common}<br />Capital : ${country.capital}
+                        `<li class="list-group-item"><p>Name : ${country.name.common}<br />Capital : ${country.capital}
                      <br />Continent : ${country.region}</p></li>`
                     )
                 });
@@ -62,7 +62,7 @@ $(() => {
 
                     // Créer des élément de liste avec 3 clés nom du pays, capital, continent
                     $(".countries-list").append(
-                        `<li><p>Name : ${country.name.common}<br />Capital : ${country.capital} <br />Continent : ${country.region}</p></li>`
+                        `<li class="list-group-item"><p>Name : ${country.name.common}<br />Capital : ${country.capital} <br />Continent : ${country.region}</p></li>`
                     )
                     console.log(country.name.common)
                 });

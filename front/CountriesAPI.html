@@ -11,19 +11,29 @@
 </head>
 
 <body>
+    <header class="d-flex align-items-center flex-column">
+        <div class="textInput">
+            <input type="text form-text" name="country" id="countryForm">
+            <button id="btnShowData" class="btn-success">Show Data</button>
+            <button id="btnReset" class="btn-warning">Reset</button>
+        </div>
+        <div class="wayOfSearch">
+            <input type="radio" id="LookingForCountry" name="LookingFor" value="Country">Name of the country
+            <input type="radio" id="LookingForCapital" name="LookingFor" value="Capital">Name of the capital
+            <input type="radio" id="LookingForSubRegion" name="LookingFor" value="SubRegion">List of countries in a subregion
+        </div>
+    </header>
 
-    <input type="text" name="country" id="countryForm">
-    <button id="btnShowData">Show Data</button>
-    <button id="btnReset">Reset</button>
+    <section class="resultOfCountry">
+        <ul class="countries-list"></ul>
+    </section>
 
 
 
 
-    <input type="radio" id="LookingForCountry" name="LookingFor" value="Country">Name of the country
-    <input type="radio" id="LookingForCapital" name="LookingFor" value="Capital">Name of the capital
-    <input type="radio" id="LookingForSubRegion" name="LookingFor" value="SubRegion">List of countries in a subregion
 
-    <ul class="countries-list"></ul>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
     <script src="./script.js"></script>

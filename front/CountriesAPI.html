@@ -16,10 +16,30 @@
     <header class="d-flex align-items-center flex-column">
 
         <div class="textInput">
-            <input type="text" name="country" id="countryForm" class=" form-text">
+            <input type="text" name="country" id="countryForm" class="form-text">
             <button id="btnShowData" class="btn-success">Show Data</button>
             <button id="btnReset" class="btn-warning">Reset</button>
         </div>
+
+        <label for="subregion">Choose a subregion:</label>
+        <select name="subregion" id="subregion" class="selectSubregion">
+          <option value="EU">European Union</option>
+          <option value="CARICOM">Caribbean Community</option>
+          <option value="EFTA">European Free Trade Association</option>
+          <option value="PA">Pacific Alliance</option>
+          <option value="AU">African Union</option>
+          <option value="USAN">Union of South American Nations</option>
+          <option value="EEU">Eurasian Economic Union</option>
+          <option value="AL">Arab League</option>
+          <option value="ASEAN">Association of Southeast Asian Nations</option>
+          <option value="CAIS">Central American Integration System</option>
+          <option value="CEFTA">Central European Free Trade Agreement</option>
+          <option value="NAFTA">North American Free Trade Agreement</option>
+          <option value="SAARC">South Asian Association for Regional Cooperation</option>
+        </select>
+        
+
+
         <div class="wayOfSearch">
             <input type="radio" id="LookingForCountry" name="LookingFor" value="Country">Name of the country
             <input type="radio" id="LookingForCapital" name="LookingFor" value="Capital">Name of the capital

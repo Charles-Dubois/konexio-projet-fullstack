@@ -1,9 +1,12 @@
 $(() => {
-    let latitude; // trois variable pour alimenter leaflet
+    let latitude; // trois variables pour alimenter leaflet
     let longitude;
     let zoomLevel;
-    let checkForm = true; // Deux variable pour vérifier que les formulaire sont bien rempli avant d'appeler une fonction
-    let checkRadio = false
+    let checkForm = true; // Deux variables pour vérifier que les formulaire sont bien rempli avant d'appeler une fonction
+    let checkRadio = false;
+    ;
+    
+
         //                       fonction pour afficher un spinner 
 
 
@@ -77,20 +80,26 @@ $(() => {
         $("#map").remove(); // Efface une map précedement affichée
         $("li").remove(); //   Supprime la liste précedment affiché
         showMySpinner(); //    Affiche le spinner de chargement
+
+
+        let countryForm;
         //                       Défini le endpoint selon le choix du user : pays // capital // subregion
         let endPoint = "";
         if ($("#LookingForCountry").is(":checked")) {
             endPoint = "https://restcountries.com/v3.1/name/";
+            countryForm = $("#countryForm").val();
         } else if ($("#LookingForCapital").is(":checked")) {
             endPoint = "https://restcountries.com/v3.1/capital/";
+            countryForm = $("#countryForm").val();
         } else if ($("#LookingForSubRegion").is(":checked")) {
-            endPoint = "https://restcountries.com/v3.1/subregion/";
+            endPoint = "https://restcountries.com/v2/regionalbloc/";
+            countryForm = $(".selectSubregion").val();
         } else { console.log("il faut choisir") }
 
-
+        
         $.ajax({
             // Importation de l'API rescountries
-            url: endPoint + $("#countryForm").val(),
+            url: `${endPoint}${countryForm}`,
             success: function(countries) {
                 countries.forEach(country => {
 
@@ -110,7 +119,7 @@ $(() => {
             if (endPoint === "https://restcountries.com/v3.1/name/" || "https://restcountries.com/v3.1/capital/") {
                 zoomLevel = 5; //              Gros zoom si l'utilisateur cherche un pays
             } else if ("https://restcountries.com/v3.1/subregion/" === endPoint) {
-                zoomLevel = 1; //             Petit zoom si l'utilisateur recherche une subregion
+                zoomLevel = 0; //             Petit zoom si l'utilisateur recherche une subregion
             }
             $(".mapPosition").append( //          insère la map dans la page 
                 `<div id="map"></div>`
@@ -128,11 +137,12 @@ $(() => {
         }
 
         if ($("#LookingForCountry").is(":checked")) {
-            checkRadio = true
+            checkRadio = true;
         } else if ($("#LookingForCountry").is(":checked")) {
-            checkRadio = true
+            checkRadio = true;
         } else if ($("#LookingForSubRegion").is(":checked")) {
-            checkRadio = true
+            checkRadio = true;
+            checkForm = true;   //             Si l'utilisateur utlise la drop list : pas besoin de renseigner le input text
         }
     }
 
@@ -143,6 +153,7 @@ $(() => {
         checkInput() //               vérification du formutaire
         if (checkForm && checkRadio === true) { // vérifie que les champs soit remplis avant d'appler une fonction
             getAllCountries();
+            
         }
     })
 })

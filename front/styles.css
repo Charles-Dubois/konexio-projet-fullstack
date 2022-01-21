@@ -1,76 +1,76 @@
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    
-    @font-face {
-        font-family: "MochiyPop";
-        src: url(./fonts/Mochiy_Pop_P_One/MochiyPopPOne-Regular.ttf) format("truetype");
-    }
-    
-    @font-face {
-        font-family: "oswald";
-        src: url(./fonts/static/Oswald-Regular.ttf)format("truetype");
-    }
-    
-    li {
-        width: 450px;
-        margin-bottom: 2%;
-    }
-    
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "MochiyPop";
+    src: url(./fonts/Mochiy_Pop_P_One/MochiyPopPOne-Regular.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "oswald";
+    src: url(./fonts/static/Oswald-Regular.ttf)format("truetype");
+}
+
+li {
+    width: 450px;
+    margin-bottom: 2%;
+}
+
+.resultOfCountry {
+    padding-top: 4rem;
+    display: flex;
+    justify-content: center;
+ background-image: url(./img/milky-way-gadfb416e8_1920.jpg);
+}
+
+p {
+    font-family: "oswald";
+    font-size: 1.2rem;
+    color: rgb(0, 0, 0);
+}
+
+.wayOfSearch {
+    margin: 4% 0 0 0;
+}
+
+.textInput {
+    margin: 2% 0 0 0;
+}
+
+header {
+    font-family: "MochiyPop";
+    padding-bottom: 1%;
+}
+
+#map {
+    height: 400px;
+    width: 400px;
+}
+/*** Media queries ***/
+
+@media screen and (max-width: 500px) {
     .resultOfCountry {
-        padding-top: 4rem;
-        display: flex;
-        justify-content: center;
-        background-image: url(./img/milky-way-gadfb416e8_1920.jpg);
+        background-image: none;
     }
-    
-    p {
-        font-family: "oswald";
-        font-size: 1.2rem;
-        color: rgb(0, 0, 0);
-    }
-    
     .wayOfSearch {
-        margin: 4% 0 0 0;
+        display: flex;
+        flex-direction: column;
     }
-    
+    li {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .wayOfSearch {
+        display: flex;
+        flex-direction: column;
+    }
     .textInput {
-        margin: 2% 0 0 0;
+        display: flex;
+        flex-direction: column;
     }
-    
-    header {
-        font-family: "MochiyPop";
-        padding-bottom: 1%;
-    }
-    
-    #map {
-        height: 400px;
-        width: 400px;
-    }
-    /*** Media queries ***/
-    
-    @media screen and (max-width: 500px) {
-        .resultOfCountry {
-            background-image: none;
-        }
-        .wayOfSearch {
-            display: flex;
-            flex-direction: column;
-        }
-        li {
-            width: 100%;
-        }
-    }
-    
-    @media screen and (max-width: 700px) {
-        .wayOfSearch {
-            display: flex;
-            flex-direction: column;
-        }
-        .textInput {
-            display: flex;
-            flex-direction: column;
-        }
-    }
+}

@@ -32,8 +32,7 @@ $(() => {
             success: function(countries) {
                 countries.forEach(country => {
                     $(".countries-list").append(
-                        `<li class="list-group-item"><p>Name : ${country.name.common}<br />Capital : ${country.capital}
-                     <br />Continent : ${country.region}</p></li>`
+                        `<li class="list-group-item d-flex justify-content-between"><div class = "infoCountry"><p>Name : ${country.name.common}<br />Capital : ${country.capital} <br />Continent : ${country.region}</p></div><div class ="flags"><img src="${country.flags.svg}" alt="flag of ${country.name.common}" width="150px" height="100px"></div></li>`
                     )
                 }); //              Importe tous les pays de l'API restcountries et les places dans les listes
             }
@@ -57,14 +56,14 @@ $(() => {
 
         const map = L.map("map").setView([latitude, longitude], zoomLevel);
 
-        const mainLayer = L.tileLayer(L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+        const mainLayer = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
             maxZoom: 18,
             id: 'mapbox/streets-v11',
             tileSize: 512,
             zoomOffset: -1,
             accessToken: "pk.eyJ1IjoiY2hhcmxlcy1kdWJvaXMiLCJhIjoiY2t5bXdibHZhMzJ1ZzJ2cWhzc3dld2kyNyJ9.f9PyCPxnFfG4CFyImm-qww"
-        }).addTo(map));
+        }).addTo(map);
 
         mainLayer.addTo(map);
     }
@@ -105,7 +104,7 @@ $(() => {
 
                     // Créer des élément de liste avec 3 clés nom du pays, capital, continent
                     $(".countries-list").append(
-                        `<li class="list-group-item"><p>Name : ${country.name.common}<br />Capital : ${country.capital} <br />Continent : ${country.region}</p></li>`
+                        `<li class="list-group-item d-flex justify-content-between"><div class = "infoCountry"><p>Name : ${country.name.common}<br />Capital : ${country.capital} <br />Continent : ${country.region}</p></div><div class ="flags"><img src="${country.flags.svg}" alt="flag of ${country.name.common}" width="150px" height="100px"></div></li>`
                     )
 
                     // récupère les coordonées du pays
